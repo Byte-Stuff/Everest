@@ -1,2 +1,2 @@
 # Everest
-The everestOS and base
+EverestOS and LambdaLang
