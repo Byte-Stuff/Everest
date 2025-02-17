@@ -1,6 +1,6 @@
 # EverestOS & LambdaLang Documentation
 
-## What is this documention, and who is it for?
+## What is this documentation, and who is it for?
 
 This documentation is for anyone interested in knowing the inner workings of both:
 - The OS
