@@ -1,3 +1,8 @@
 # EverestOS & LambdaLang Documentation
 
-## What is this documentiont, and who is it for?
+## What is this documention, and who is it for? <!-- {docsify-ignore} -->
+
+This documentation is for anyone interested in knowing the inner workings of both:
+- The OS
+- The language behind it
+As well as for anybody who wants to develop apps for EverestOS
