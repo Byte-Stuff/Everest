@@ -1,7 +1,10 @@
 # LambdaLang
 
-## Also a test
+## Definition
 
+LambdaLang is the language running on the "CPU"
+
+## Command list
 
 | Command name  | Argument 1 | Argument 2 | Description | CPU mode |
 | --- | --- | --- | --- | --- |
@@ -19,3 +22,16 @@
 | IRR | None | None | Returns last interrupt | Kernel |
 | HLT | None | None | Halt CPU | Kernel |
 | REF | None | None | Refresh Screen | Kernel |
+
+## Addresses
+
+The memory is structured in multiple lists, and addresses are translated accordingly
+
+| Start | End | List | CPU mode access |
+| --- | --- | --- | --- |
+| 0 | 200k | Memory | User (with MMU paging) |
+| 200k | 400k | Page table | Kernel |
+| 400k | 600k | NewScreenBuffer | Kernel |
+| 600k | 1M | VRAM | Kernel |
+| 1M | 1.2M | Internal Disk | Kernel |
+| 1.2M | 1.4M | External Disk | Kernel |
