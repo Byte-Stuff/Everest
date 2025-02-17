@@ -1,3 +1,3 @@
-# Test
+# LambdaLang
 
 ## Also a test

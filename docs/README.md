@@ -1,5 +1,3 @@
-# Home
+# EverestOS & LambdaLang Documentation
 
-## Basics
-
-### Help
+## What is this documentiont, and who is it for?
