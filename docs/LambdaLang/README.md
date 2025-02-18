@@ -41,3 +41,25 @@ The MMU doesn't cover anything other than memory, making page tables for anythin
 
 !> **Warn** \
 Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well an in an interrupt
+
+## Display
+
+The display is structured in 4 lists:
+- The 'oldscreen' list
+- the 'newscreen' list
+- 2 VRAM lists
+
+### The 'OldScreenBuffer' list
+
+This list stores what's already on screen, only used to refer with the 'NewScreenBuffer' list.
+
+### The 'NewScreenBuffer' list
+
+This list stores what you want drawn on screen. It's able to be written to directly (see Addresses).
+
+!> **Warn** \
+Writing pixel per pixel here is rather slow, try loading to the VRAM first, and then loading inside
+
+### The 2 VRAM lists
+
+These lists store other assets you can transfer to the 'NewScreenBuffer'
