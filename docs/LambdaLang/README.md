@@ -28,10 +28,16 @@ LambdaLang is the language running on the "CPU"
 The memory is structured in multiple lists, and addresses are translated accordingly
 
 | Start | End | List | CPU mode access |
-| --- | --- | --- | --- |
+| :---: | :---: | --- | :---: |
 | 0 | 200k | Memory | User (with MMU paging) |
 | 200k | 400k | Page table | Kernel |
 | 400k | 600k | NewScreenBuffer | Kernel |
 | 600k | 1M | VRAM | Kernel |
 | 1M | 1.2M | Internal Disk | Kernel |
 | 1.2M | 1.4M | External Disk | Kernel |
+
+?> **Notice** \
+The MMU doesn't cover anything other than memory, making page tables for anything above 200k is useless
+
+!> **Warn** \
+Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well an in an interrupt
