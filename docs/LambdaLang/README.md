@@ -3,6 +3,7 @@
 ## Definition
 
 LambdaLang is the language running on the "CPU"
+The Base is the hard coded part (in scratch), e.g: The MOV command
 
 ## Command list
 
@@ -22,6 +23,8 @@ LambdaLang is the language running on the "CPU"
 | IRR | None | None | Returns last interrupt | Kernel |
 | HLT | None | None | Halt CPU | Kernel |
 | REF | None | None | Refresh Screen | Kernel |
+| CPV | VRAM Item | Position | Move the VRAM item to the position in NSB (see Display) | Kernel |
+| TLP | X | Y | Translate X & Y data to a position on the screen | Kernel |
 
 ## Addresses
 
@@ -45,21 +48,50 @@ Trying to write to any memory not paged in the page table beforehand (in user mo
 ## Display
 
 The display is structured in 4 lists:
-- The 'oldscreen' list
-- the 'newscreen' list
+- The 'OldScreenBuffer' list
+- The 'NewScreenBuffer' list
 - 2 VRAM lists
 
 ### The 'OldScreenBuffer' list
 
-This list stores what's already on screen, only used to refer with the 'NewScreenBuffer' list.
+This list stores what's already on screen, only used to refer with the 'NSB' list.
 
 ### The 'NewScreenBuffer' list
 
 This list stores what you want drawn on screen. It's able to be written to directly (see Addresses).
 
 !> **Warn** \
-Writing pixel per pixel here is rather slow, try loading to the VRAM first, and then loading inside
+Writing pixel per pixel here is rather slow, try loading to the VRAM first, and then load from the VRAM to the 'NSB'
 
 ### The 2 VRAM lists
 
-These lists store other assets you can transfer to the 'NewScreenBuffer'
+These lists store other assets you can transfer to the 'NSB'
+The Base can add, remove and edit VRAM items.
+The VRAM is organised like this:
+
+- name of item
+- color data
+- "-2" (end of data)
+
+When passing data from the VRAM to the NSB, you pass 2 arguments:
+- The name of the VRAM item
+- The starting position in 
+The Base looks for the name, and copies everything starting at the given position.
+To translate x and y data to a position, use the TLP command
+The color data can be RGB, RGBA, hex... Although there are 'special' colors:
+- "-1" (empty, for having holes in your image)
+- "-2" (end of data)
+- "n[+ or -][3 digit number]" (newline, along with an offset for the next line, can be negative)
+And of course, a delimiter: ';'
+
+example: \
+0;0;0;n-001; \
+0;0;0;0;0;n+000; \
+0;0;0;0;0;n+001; \
+0;0;0;-2
+
+would give this: \
+□■■■□\
+■■■■■ \
+■■■■■ \
+□■■■□
