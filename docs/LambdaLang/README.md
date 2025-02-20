@@ -25,6 +25,10 @@ The Base is the hard coded part (in scratch), e.g: The MOV command
 | REF | None | None | Refresh Screen | Kernel |
 | CPV | VRAM Item | Position | Move the VRAM item to the position in NSB (see Display) | Kernel |
 | TLP | X | Y | Translate X & Y data to a position on the screen | Kernel |
+| ICF | FileData | posoffset | Places a file's code at the current code address, plus the offset | Kernel |
+
+!> **Warn** \
+If you want to use the ICF function, the operating system could provide it for you, but for security reasons, user processes cannot execute it.
 
 ## Addresses
 
