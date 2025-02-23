@@ -22,11 +22,36 @@ ROOT(partition)
 - - - boot2.ll
 - - /System
 - - - /sLib
-- - - kernel.ll
+- - - /Core
+- - - - kernel.ll
+- - - - esfs.ll
+- - - - esfs.fish
+- - - /Components
+- - - - /Gemstone
+- - - - - gstone.ll
+- - - - - /icons
+- - - - /WowChestra
+- - - - - wowchestra.ll
 - - /drv
 - - - display.ll
+- - - keyb.ll
+- - - mouse.ll
 - /Libraries
 - /Users
+
+### System Files
+
+| File | Description |
+| :---: | --- |
+| boot.ll | Bootloader |
+| boot2.ll | Bootcode of the OS |
+| kernel.ll | The Everest Kernel |
+| display.ll | display driver |
+| keyb.ll | keyboard driver |
+| mouse.ll | mouse driver |
+| gstone.ll | the Gemstone display server |
+| wowchestra.ll | The window manager |
+
 
 ## Apps
 

@@ -28,7 +28,8 @@ The Base is the hard coded part (in scratch), e.g: The MOV command
 | ICF | FileData | posoffset | Places a file's code at the current code address, plus the offset | Kernel |
 
 !> **Warn** \
-If you want to use the ICF function, the operating system could provide it for you, but for security reasons, user processes cannot execute it.
+User processes CANNOT execute the ICF for security reasons.
+Instead you should ask the OS to do it for you.
 
 ## Addresses
 
