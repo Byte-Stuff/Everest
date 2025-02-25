@@ -47,7 +47,7 @@ The memory is structured in multiple lists, and addresses are translated accordi
 ?> **Notice** \
 The MMU doesn't cover anything other than memory, making page tables for anything above 200k is useless
 
-!> **Warn** \
+!> **Warning** \
 Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well an in an interrupt
 
 ## Display
@@ -65,7 +65,7 @@ This list stores what's already on screen, only used to refer with the 'NSB' lis
 
 This list stores what you want drawn on screen. It's able to be written to directly (see Addresses).
 
-!> **Warn** \
+!> **Warning** \
 Writing pixel per pixel here is rather slow, try loading to the VRAM first, and then load from the VRAM to the 'NSB'
 
 ### The 2 VRAM lists
@@ -80,14 +80,15 @@ The VRAM is organised like this:
 
 When passing data from the VRAM to the NSB, you pass 2 arguments:
 - The name of the VRAM item
-- The starting position in 
-The Base looks for the name, and copies everything starting at the given position.
-To translate x and y data to a position, use the TLP command
+- The starting position
+
+The Base looks for the name, and copies everything starting at the given position. \
+To translate x and y data to a position, use the TLP command \
 The color data can be RGB, RGBA, hex... Although there are 'special' colors:
 - "-1" (empty, for having holes in your image)
 - "-2" (end of data)
-- "n[+ or -][3 digit number]" (newline, along with an offset for the next line, can be negative)
-And of course, a delimiter: ';'
+- "n[+ or -][3 digit number]" (newline, along with an offset for the next line, can be negative) \
+And of course, a delimiter: ';' (only when stored in the disk, they're just items in the VRAM list otherwise)
 
 example: \
 0;0;0;n-001; \
