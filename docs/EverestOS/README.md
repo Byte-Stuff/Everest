@@ -38,6 +38,9 @@ ROOT(partition)
 - - - mouse.ll
 - /Libraries
 - /Users
+- /Recovery
+- - /boot
+- - - boot2.ll
 
 ### System Files
 
