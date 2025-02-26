@@ -122,4 +122,4 @@ The firmare has a few addresses it keeps track of to handle those requests, from
 
 ### Kernel Interrupt
 
-When your program (or kernel), switches the CPU mode from 
+When your program (or kernel), switches the CPU mode from Firmware to Kernel Control, the CPU will instead take up a memory address at address 1, to redirect the Program Counter to what your program put in that address. From there your program will take care of handling requests, and so it has to manage the memory taking itself.
