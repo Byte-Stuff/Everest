@@ -74,13 +74,15 @@ These lists store other assets you can transfer to the 'NSB'
 The Base can add, remove and edit VRAM items.
 The VRAM is organised like this:
 
-- name of item
 - color data
 - "-2" (end of data)
 
 When passing data from the VRAM to the NSB, you pass 2 arguments:
-- The name of the VRAM item
+- The position where the item in VRAM starts
 - The starting position
+
+!> Warning: \
+!> A VRAM item cannot start at a different list than where it ends, as it isn't currently supported!
 
 The Base looks for the name, and copies everything starting at the given position. \
 To translate x and y data to a position, use the TLP command \
