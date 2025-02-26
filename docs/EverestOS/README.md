@@ -41,6 +41,8 @@ ROOT(partition)
 - /Recovery
 - - /boot
 - - - boot2.ll
+- - /ressources
+- - - rimg.pci
 
 ### System Files
 
