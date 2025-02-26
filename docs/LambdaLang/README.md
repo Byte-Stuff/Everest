@@ -82,7 +82,7 @@ When passing data from the VRAM to the NSB, you pass 2 arguments:
 - The starting position
 
 !> Warning: \
-!> A VRAM item cannot start at a different list than where it ends, as it isn't currently supported!
+A VRAM item cannot start at a different list than where it ends, as it isn't currently supported!
 
 The Base looks for the name, and copies everything starting at the given position. \
 To translate x and y data to a position, use the TLP command \
