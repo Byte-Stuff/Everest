@@ -4,6 +4,13 @@
 
 LambdaLang is the language running on the "CPU"
 The Base is the hard coded part (in scratch), e.g: The MOV command
+F-Recovery (or Firmware Recovery), is an error screen that the Firmware triggers when invalid code is detected while an interrupt is triggered. It can also be called.
+
+## CPU modes
+
+The CPU has a few modes it keeps track of, most notably:
+- Kernel mode: this keeps track of if the CPU is in User or Kernel mode
+- Firmware mode: this tells the CPU that the firmware is still in control, and that no program took over yet, as such the Firmware will handle interrupts.
 
 ## Command list
 
@@ -103,3 +110,16 @@ would give this: \
 ■■■■■ \
 ■■■■■ \
 □■■■□
+
+## Interrupts
+
+Like any CPU, you can trigger an interrupt from LambdaLang using the ITR instruction. This will stop the code, save it to the InterruptStack. Interrupts are separated in two different usage methods:
+
+### Firmware Interrupt
+
+In this case, the firmware itself is taking care of interrupts, and it's only available in the Firmware CPU mode. \
+The firmare has a few addresses it keeps track of to handle those requests, from address 0, to address 10, are reserved for the Firmware, any invalid interrupt will immediately cause F-Recovery to trigger.
+
+### Kernel Interrupt
+
+When your program (or kernel), switches the CPU mode from 
