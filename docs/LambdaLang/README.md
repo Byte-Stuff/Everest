@@ -34,8 +34,9 @@ The CPU has a few modes it keeps track of, most notably:
 | TLP | X | Y | Translate X & Y data to a position on the screen | Kernel |
 | ICF | FileData | posoffset | Places a file's code at the current code address, plus the offset | Kernel |
 
-!> **Warn** \
-User processes CANNOT execute the ICF for security reasons.
+!> **Warning** \
+User processes CANNOT execute the ICF instruction for security reasons.
+
 Instead you should ask the OS to do it for you.
 
 ## Addresses
