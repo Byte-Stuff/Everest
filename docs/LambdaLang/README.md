@@ -40,6 +40,8 @@ Instead you should ask the OS to do it for you.
 
 ## Addresses
 
+### Memory addresses (general)
+
 The memory is structured in multiple lists, and addresses are translated accordingly
 
 | Start | End | List | CPU mode access |
@@ -50,6 +52,17 @@ The memory is structured in multiple lists, and addresses are translated accordi
 | 600k | 1M | VRAM | Kernel |
 | 1M | 1.2M | Internal Disk | Kernel |
 | 1.2M | 1.4M | External Disk | Kernel |
+
+### Firmware reserved addresses
+
+| Address | Use | Mode |
+| :---: | :---: |
+| 1 | action to perform by the firmware | 0 |
+| 1 | codeMemory address for the Kernel's Interrupt handler | 1 |
+| 2 | General argument 1 | 0 |
+| 3 | General argument 2 | 0 |
+| 4 | General argument 3 | 0 |
+| 5 | General argument 4 | 0 |
 
 ?> **Notice** \
 The MMU doesn't cover anything other than memory, making page tables for anything above 200k is useless
