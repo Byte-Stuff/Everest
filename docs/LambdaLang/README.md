@@ -4,6 +4,7 @@
 
 LambdaLang is the language running on the "CPU"
 The Base is the hard coded part (in scratch), e.g: The MOV command
+
 F-Recovery (or Firmware Recovery), is an error screen that the Firmware triggers when invalid code is detected while an interrupt is triggered. It can also be called.
 
 ## CPU modes
