@@ -82,13 +82,13 @@ F-Recovery has multiple images, which have different meanings:
 
 - The prohibitory symbol:
 
-<img src='/images/InvalidInvalid.png' width=25% height=25%></img>
+![test](../images/InvalidInvalid.png)
 
 An error interrupt has been triggered, and execution has been stopped
 
 - The missing folder:
 
-<img src='/images/Missing.png' width=25% height=25%></img>
+<img src="../images/InvalidInvalid.png" width="200">
 
 No startup code has been found in address 1 of the internal list
 
