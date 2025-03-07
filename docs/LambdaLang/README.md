@@ -80,7 +80,17 @@ F-Recovery triggers when:
 
 F-Recovery has multiple images, which have different meanings:
 
-<img src='/docs/images/InvalidInvalid.png'></img>
+- The prohibitory symbol:
+
+<img src='/images/InvalidInvalid.png' width=25% height=25%></img>
+
+An error interrupt has been triggered, and execution has been stopped
+
+- The missing folder:
+
+<img src='/images/Missing.png' width=25% height=25%></img>
+
+No startup code has been found in address 1 of the internal list
 
 ## Display
 
