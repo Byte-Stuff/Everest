@@ -72,6 +72,16 @@ The MMU doesn't cover anything other than memory, making page tables for anythin
 !> **Warning** \
 Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well an in an interrupt
 
+## Firmware Recovery
+
+F-Recovery triggers when:
+- An error interrupt is triggered while in Firmware Mode
+- No boot file is found
+
+F-Recovery has multiple images, which have different meanings:
+
+<img src='/docs/images/InvalidInvalid.png'></img>
+
 ## Display
 
 The display is structured in 4 lists:
