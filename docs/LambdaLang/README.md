@@ -88,7 +88,7 @@ An error interrupt has been triggered, and execution has been stopped
 
 - The missing folder:
 
-<img src="../images/InvalidInvalid.png" width="200">
+<img src="../docs/images/InvalidInvalid.png" width="200">
 
 No startup code has been found in address 1 of the internal list
 
