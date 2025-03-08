@@ -13,27 +13,58 @@ The CPU has a few modes it keeps track of, most notably:
 - Kernel mode: this keeps track of if the CPU is in User or Kernel mode
 - Firmware mode: this tells the CPU that the firmware is still in control, and that no program took over yet, as such the Firmware will handle interrupts.
 
-## Command list
+## Instructions
 
-| Command name  | Argument 1 | Argument 2 | Description | CPU mode |
+### Memory handling
+
+| Instruction | Argument 1 | Argument 2 | Description | CPU mode |
 | --- | --- | --- | --- | --- |
-| MOV | Value to be moved | Destination (see addresses) | Move the value Argument 1 to Argument 2 | Depends on the destination |
-| ADI | Start Value | End Value | Add the end value to the start value | User |
-| PSH | Value | None | Push the value to the stack | User |
-| POP | Destination | None | Move the stack to the destination | User |
-| CMP | Value 1 | Value 2 | Checks if value 1 is <, >, or = and stores in the CMP register | User |
-| JMP | Destination | None | Jumps to the destination | User |
-| JIL | Destination | None | Jumps to the destination if CMP is less | User |
-| JIE | Destination | None | Jumps to the destination if CMP is equal | User |
-| JIG | Destination | None | Jumps to the destination if CMP is greater | User |
-| ITR | None | None | Triggers an interrupt | User |
+| LDM | reg | addr | Load from general memory to reg | User |
+| STM | addr | reg | Store reg to general memory | User |
+| LDC | reg | addr | Load from code memory to reg | Kernel |
+| STC | addr | reg | Write to code memory at addr | Kernel |
+| LV1 | reg | addr | Load from VRAM 1 to reg | Kernel |
+| SV1 | addr | reg | Store reg to VRAM 1 | Kernel |
+| LV2 | reg | addr | Load from VRAM 2 to reg | Kernel |
+| SV2 | addr | reg | Store reg to VRAM 2 | Kernel |
+| LSB | reg | addr | Load from screen buffer to reg | Kernel |
+| SSB | addr | reg | Store reg to screen buffer | Kernel |
+| LID | reg | addr | Load from internal disk addr to reg | Kernel |
+| SID | addr | reg | Store reg to internal disk addr | Kernel |
+| LXD | reg | addr | Load from external disk addr to reg | Kernel |
+| SXD | addr | reg | Store reg to external disk addr | Kernel |
+| PSH | reg | None | Push the value to the stack | User |
+| POP | reg | None | Move the stack to the destination | User |
+
+?> **Tip** \
+Please keep in mind that, while thr SDM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
+
+### Mathematical Operations
+
+| Instruction | Argument 1 | Argument 2 | Description | CPU mode |
+| --- | --- | --- | --- | --- |
+| ADD | reg | reg | Add the end value to the start value | User |
+
+### Jumping
+
+| CMP | reg | reg | Checks if value 1 is <, >, or = and stores in the CMP register | User |
+| JMP | reg | None | Jumps to reg | User |
+| JEQ | reg | None | Jumps to reg if Z flag is 1 | User |
+| JNE | reg | None | Jumps to reg if Z flag is 0 | User |
+| JGT | reg | None | Jumps to reg if C flag is 0 and Z flag is 0 | User |
+| JLT | reg | None | Jumps to reg if C flag is 1 | User |
+| JGE | reg | None | Jumps to reg if C flag is 0 | User |
+| JLE | reg | None | Jumps to reg if C flag is 1 and Z flag is 1 | User |
+| JZE | reg | None | Jumps to reg if Z flag is 1 | User |
 | RET | None | None | Returns last jump | User |
+
+### Other
+
+| ITR | None | None | Triggers an interrupt | User |
 | IRR | None | None | Returns last interrupt | Kernel |
 | HLT | None | None | Halt CPU | Kernel |
 | REF | None | None | Refresh Screen | Kernel |
-| CPV | VRAM Item | Position | Move the VRAM item to the position in NSB (see Display) | Kernel |
-| TLP | X | Y | Translate X & Y data to a position on the screen | Kernel |
-| ICF | FileData | posoffset | Places a file's code at the current code address, plus the offset | Kernel |
+| CPV | reg | Position | Move the VRAM item to the position in NSB (see Display) | Kernel |
 
 !> **Warning** \
 User processes CANNOT execute the ICF instruction for security reasons.
