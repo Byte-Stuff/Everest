@@ -94,14 +94,4 @@ app.app
 
 ## Boot Process
 
-- The firmware loads the first address in the Internal storage (boot.ll)
-- boot.ll starts tmpfs.ll, and uses it's partition table to find the main partition, and load boot2.ll
-- boot2.ll cleans boot.ll out of memory, and uses the already loaded partition table to find and execute /Everest/System/Core/ekrnl.ll
-- ekrnl.ll then starts booting the OS:
-- - it cleans boot2.ll out
-- - starts the OS environment
-- - Switches the CPU to Kernel Interrupts
-- - Loads /Everest/System/Core/efs.ll, and takes it's partition table, replacing the temporary one.
-- - it sets up the bases for multitasking (e.g Memory Management, CPU Scheduling, Drivers...)
-- - The Kernel then starts the Init process
-- The Init process takes care of starting up the rest while the Kernel runs, mainly for starting up the GUI, background processes, it basically bootstraps the OS.
+WIP
