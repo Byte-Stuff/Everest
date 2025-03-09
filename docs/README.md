@@ -1,9 +1,10 @@
 # EverestOS & LambdaLang Documentation
 
+!> **Hold up!** \
+This documentation is still being worked on! And things ***WILL*** change!
+
 ### What is this documentation, and who is it for?
 
-This documentation is for anyone interested in knowing the inner workings of both:
-- The OS
-- The language behind it
+This documentation explains the inner-working of both EverestOS, and the 'CPU' behind it: Lambda
 
-As well as for anybody who wants to develop apps for EverestOS
+This documentation is made for anyone that wants to develop software for either one of them
