@@ -39,6 +39,9 @@ The CPU has a few modes it keeps track of, most notably:
 ?> **Tip** \
 Please keep in mind that, while thr SDM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
 
+!> **Warning** \
+Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well as an interrupt
+
 ### Mathematical Operations
 
 | Instruction | Argument 1 | Argument 2 | Description | CPU mode |
@@ -47,7 +50,9 @@ Please keep in mind that, while thr SDM and LDM Instructions are available in Us
 
 ### Jumping
 
-| CMP | reg | reg | Checks if value 1 is <, >, or = and stores in the CMP register | User |
+| Instruction | Argument 1 | Argument 2 | Description | CPU mode |
+| --- | --- | --- | --- | --- |
+| CMP | reg | reg | Updates CPU flags based on registers | User |
 | JMP | reg | None | Jumps to reg | User |
 | JEQ | reg | None | Jumps to reg if Z flag is 1 | User |
 | JNE | reg | None | Jumps to reg if Z flag is 0 | User |
@@ -60,48 +65,24 @@ Please keep in mind that, while thr SDM and LDM Instructions are available in Us
 
 ### Other
 
+| Instruction | Argument 1 | Argument 2 | Description | CPU mode |
+| --- | --- | --- | --- | --- |
 | ITR | None | None | Triggers an interrupt | User |
 | IRR | None | None | Returns last interrupt | Kernel |
 | HLT | None | None | Halt CPU | Kernel |
 | REF | None | None | Refresh Screen | Kernel |
 | CPV | reg | Position | Move the VRAM item to the position in NSB (see Display) | Kernel |
 
-!> **Warning** \
-User processes CANNOT execute the ICF instruction for security reasons.
-
-Instead you should ask the OS to do it for you.
-
-## Addresses
-
-### Memory addresses (general)
-
-The memory is structured in multiple lists, and addresses are translated accordingly
-
-| Start | End | List | CPU mode access |
-| :---: | :---: | --- | :---: |
-| 0 | 200k | Memory | User (with MMU paging) |
-| 200k | 400k | Page table | Kernel |
-| 400k | 600k | NewScreenBuffer | Kernel |
-| 600k | 1M | VRAM | Kernel |
-| 1M | 1.2M | Internal Disk | Kernel |
-| 1.2M | 1.4M | External Disk | Kernel |
-
-### Firmware reserved addresses
+## Firmware reserved addresses
 
 | Address | Use | Mode |
-| :---: | :---: |
+| :---: | :---: | :---: |
 | 1 | action to perform by the firmware | 0 |
 | 1 | codeMemory address for the Kernel's Interrupt handler | 1 |
 | 2 | General argument 1 | 0 |
 | 3 | General argument 2 | 0 |
 | 4 | General argument 3 | 0 |
 | 5 | General argument 4 | 0 |
-
-?> **Notice** \
-The MMU doesn't cover anything other than memory, making page tables for anything above 200k is useless
-
-!> **Warning** \
-Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well an in an interrupt
 
 ## Firmware Recovery
 
@@ -113,13 +94,13 @@ F-Recovery has multiple images, which have different meanings:
 
 - The prohibitory symbol:
 
-![test](../images/InvalidInvalid.png)
+![Invalid](../images/InvalidInvalid.png ':size=200')
 
-An error interrupt has been triggered, and execution has been stopped
+An error interrupt has been triggered, and execution has been stopped, press the green flag to reboot
 
 - The missing folder:
 
-<img src="../docs/images/InvalidInvalid.png" width="200">
+![Missing](../images/Missing.png ':size=210')
 
 No startup code has been found in address 1 of the internal list
 
@@ -179,7 +160,8 @@ would give this: \
 
 ## Interrupts
 
-Like any CPU, you can trigger an interrupt from LambdaLang using the ITR instruction. This will stop the code, save it to the InterruptStack. Interrupts are separated in two different usage methods:
+Like any CPU, you can trigger an interrupt from LambdaLang using the ITR instruction. This will stop the code and save it to the Interrupt Stack.\
+Interrupts are separated in two different usage methods:
 
 ### Firmware Interrupt
 
