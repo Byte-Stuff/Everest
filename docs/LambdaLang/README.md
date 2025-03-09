@@ -4,7 +4,7 @@
 
 LambdaLang is the language running on Lambda, the 'CPU'
 
-F-Recovery (or Firmware Recovery), is an error screen that the Firmware triggers when invalid code is detected while an interrupt is triggered. It can also be called.
+F-Recovery (or Firmware Recovery), is an error screen that the Firmware triggers when a specific interrupt is triggered. It can also trigger itself when it detects bad arguments upon calling another interrupt.
 
 ## CPU modes
 
@@ -18,6 +18,7 @@ The CPU has a few modes it keeps track of, most notably:
 
 | Instruction | Argument 1 | Argument 2 | Description | CPU mode |
 | --- | --- | --- | --- | --- |
+| LDI | reg | val | Load a value into reg | User |
 | LDM | reg | addr | Load from general memory to reg | User |
 | STM | addr | reg | Store reg to general memory | User |
 | LDC | reg | addr | Load from code memory to reg | Kernel |
@@ -45,7 +46,13 @@ Trying to write to any memory not paged in the page table beforehand (in user mo
 
 | Instruction | Argument 1 | Argument 2 | Description | CPU mode |
 | --- | --- | --- | --- | --- |
-| ADD | reg | reg | Add the end value to the start value | User |
+| ADD | reg | reg | Add the end reg to the start reg | User |
+| SUB | reg | reg | Subtract the end reg to the start reg | User |
+| MUL | reg | reg | Multiply the end reg with the start reg | User |
+| DIV | reg | reg | Divide the end reg with the start reg | User |
+| MOD | reg | reg | Modulo the end reg with the start reg | User |
+| INC | reg | val | Increment the start reg with the end value | User |
+| ADD | reg | reg | Decrement the start reg with the end value | User |
 
 ### Jumping
 
@@ -78,10 +85,6 @@ Trying to write to any memory not paged in the page table beforehand (in user mo
 | :---: | :---: | :---: |
 | 1 | action to perform by the firmware | 0 |
 | 1 | codeMemory address for the Kernel's Interrupt handler | 1 |
-| 2 | General argument 1 | 0 |
-| 3 | General argument 2 | 0 |
-| 4 | General argument 3 | 0 |
-| 5 | General argument 4 | 0 |
 
 ## Firmware Recovery
 
@@ -116,7 +119,7 @@ This list stores what's already on screen, only used to refer with the 'NSB' lis
 
 ### The 'NewScreenBuffer' list
 
-This list stores what you want drawn on screen. It's able to be written to directly (see Addresses).
+This list stores what you want drawn on screen. It's able to be written to directly.
 
 !> **Warning** \
 Writing pixel per pixel here is rather slow, try loading to the VRAM first, and then load from the VRAM to the 'NSB'
@@ -165,7 +168,7 @@ Interrupts are separated in two different usage methods:
 ### Firmware Interrupt
 
 In this case, the firmware itself is taking care of interrupts, and it's only available in the Firmware CPU mode. \
-The firmare has a few addresses it keeps track of to handle those requests, from address 0, to address 10, are reserved for the Firmware, any invalid interrupt will immediately cause F-Recovery to trigger.
+The firmare keeps track of certain registers to handle those requests, any invalid interrupt will immediately cause F-Recovery to trigger.
 
 ### Kernel Interrupt
 

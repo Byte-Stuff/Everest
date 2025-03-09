@@ -40,13 +40,16 @@ ROOT(partition)
 - - - display.ll
 - - - keyb.ll
 - - - mouse.ll
+
 - /Libraries
+
 - /Users
+
 - /Recovery
 - - /boot
 - - - boot2.ll
 - - /ressources
-- - - rimg.pci
+
 - /Registry
 - - /System
 - - - /Kernel
