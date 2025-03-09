@@ -1,5 +1,5 @@
 # Everest
-EverestOS & LambdaLang
+EverestOS & Lambda/LambdaLang
 
 Lambda is the 'CPU' running in scratch
 
