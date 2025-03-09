@@ -1,9 +1,8 @@
-# LambdaLang
+# Lambda & LambdaLang
 
 ## Definition
 
-LambdaLang is the language running on the "CPU"
-The Base is the hard coded part (in scratch), e.g: The MOV command
+LambdaLang is the language running on Lambda, the 'CPU'
 
 F-Recovery (or Firmware Recovery), is an error screen that the Firmware triggers when invalid code is detected while an interrupt is triggered. It can also be called.
 
@@ -125,7 +124,7 @@ Writing pixel per pixel here is rather slow, try loading to the VRAM first, and 
 ### The 2 VRAM lists
 
 These lists store other assets you can transfer to the 'NSB'
-The Base can add, remove and edit VRAM items.
+Lambda can add, remove and edit VRAM items.
 The VRAM is organised like this:
 
 - color data
@@ -138,7 +137,7 @@ When passing data from the VRAM to the NSB, you pass 2 arguments:
 !> Warning: \
 A VRAM item cannot start at a different list than where it ends, as it isn't currently supported!
 
-The Base looks for the name, and copies everything starting at the given position. \
+Lambda looks for the name, and copies everything starting at the given position. \
 To translate x and y data to a position, use the TLP command \
 The color data can be RGB, RGBA, hex... Although there are 'special' colors:
 - "-1" (empty, for having holes in your image)

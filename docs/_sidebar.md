@@ -1,3 +1,3 @@
 - [Home](/)
-- [LambdaLang](/LambdaLang/)
+- [Lambda](/LambdaLang/)
 - [EverestOS](/EverestOS/)

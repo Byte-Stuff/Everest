@@ -1,4 +1,4 @@
-# EverestOS & LambdaLang Documentation
+# EverestOS & Lambda Documentation
 
 !> **Hold up!** \
 This documentation is still being worked on! And things ***WILL*** change!
