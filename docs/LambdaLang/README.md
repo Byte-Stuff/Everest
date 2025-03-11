@@ -170,6 +170,12 @@ Interrupts are separated in two different usage methods:
 In this case, the firmware itself is taking care of interrupts, and it's only available in the Firmware CPU mode. \
 The firmare keeps track of certain registers to handle those requests, any invalid interrupt will immediately cause F-Recovery to trigger.
 
+#### Firmware Interrupts
+
+| Register 1 | Used registers | Description |
+| :---: | --- | --- |
+| 1 | 2-4 | Write text on screen |
+
 ### Kernel Interrupt
 
 When your program (or kernel), switches the CPU mode from Firmware to Kernel Control, the CPU will instead take up a memory address at address 1, to redirect the Program Counter to what your program put in that address. From there your program will take care of handling requests, and so it has to manage the memory taking itself.
