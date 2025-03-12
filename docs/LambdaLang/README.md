@@ -35,6 +35,7 @@ The CPU has a few modes it keeps track of, most notably:
 | SXD | addr | reg | Store reg to external disk addr | Kernel |
 | PSH | reg | None | Push the value to the stack | User |
 | POP | reg | None | Move the stack to the destination | User |
+| GWV | reg | val | Get real-world value | Kernel |
 
 ?> **Tip** \
 Please keep in mind that, while thr SDM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
