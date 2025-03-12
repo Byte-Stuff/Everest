@@ -1,4 +1,4 @@
 - [Home](/)
 - [Lambda](/LambdaLang/)
 - [EverestOS](/EverestOS/)
-- [Recovert](/Recovery/)
+- [Recovery](/LambdaLang/recovery.md)
