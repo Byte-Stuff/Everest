@@ -18,6 +18,7 @@ The CPU has a few modes it keeps track of, most notably:
 
 | Instruction | Argument 1 | Argument 2 | Description | CPU mode |
 | --- | --- | --- | --- | --- |
+| MOV | reg | reg | Move argument 2 into argument 1 | User |
 | LDI | reg | val | Load a value into reg | User |
 | LDM | reg | addr | Load from general memory to reg | User |
 | STM | addr | reg | Store reg to general memory | User |

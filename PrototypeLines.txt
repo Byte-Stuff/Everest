@@ -1,0 +1,64 @@
+_init:
+ldi $x0 "1"
+ldi $x1 "25"
+ldi $y0 "1"
+ldi $y1 "25"
+jmp _drawLineH
+
+_drawLineH:
+ldi $i "0"
+cmp $x0 $x1
+jgt _inverse
+mov $dx $x1
+sub $x1 $x0
+ldi $tmp "0"
+cmp $dy $tmp
+jeq _dir
+jne _undir
+
+_DLH2:
+mul $dy $dir
+mov $y $y0
+mov $p $dy
+ldi $tmp "2"
+mul $p $tmp
+sub $p $dx
+
+_DLHLoop:
+inc $i "1"
+ldi $tmp "O"
+cmp $p $tmp
+jge _DLHL2
+jmp _finish_DLHL
+
+_DLHL2:
+add $y $dir
+ldi $tmp "2"
+mul $tmp $dx
+sub $p $tmp
+jmp _finish_DLHL
+
+_finish_DLHL:
+ldi $tmp "2"
+mul $tmp $dy
+add $p $tmp
+ldi $tmp 1
+add $tmp $dx
+cmp $i $tmp
+jlt _DLHLoop
+hlt
+
+_inverse:
+mov $tmp $x0
+mov $x0 $x1
+mov $x1 $tmp
+
+_dir:
+ldi $dir "-1"
+cmp $dx $tmp
+jne _DLH2
+    
+_undir:
+ldi $dir "1"
+cmp $dx $tmp
+jne _DLH2
