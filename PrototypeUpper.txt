@@ -1,0 +1,6 @@
+_init:
+ldi r1 text
+ldi r2 -230
+ldi r3 160
+ldi r4 "Hello world!"
+itr
