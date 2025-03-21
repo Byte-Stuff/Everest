@@ -16,26 +16,28 @@ The CPU has a few modes it keeps track of, most notably:
 
 ### Memory handling
 
-| Instruction | Argument 1 | Argument 2 | Description | CPU mode |
-| --- | --- | --- | --- | --- |
-| MOV | reg | reg | Move argument 2 into argument 1 | User |
-| LDI | reg | val | Load a value into reg | User |
-| LDM | reg | addr | Load from general memory to reg | User |
-| STM | addr | reg | Store reg to general memory | User |
-| LDC | reg | addr | Load from code memory to reg | Kernel |
-| STC | addr | reg | Write to code memory at addr | Kernel |
-| LV1 | reg | addr | Load from VRAM 1 to reg | Kernel |
-| SV1 | addr | reg | Store reg to VRAM 1 | Kernel |
-| LV2 | reg | addr | Load from VRAM 2 to reg | Kernel |
-| SV2 | addr | reg | Store reg to VRAM 2 | Kernel |
-| LSB | reg | addr | Load from screen buffer to reg | Kernel |
-| SSB | addr | reg | Store reg to screen buffer | Kernel |
-| LID | reg | addr | Load from internal disk addr to reg | Kernel |
-| SID | addr | reg | Store reg to internal disk addr | Kernel |
-| LXD | reg | addr | Load from external disk addr to reg | Kernel |
-| SXD | addr | reg | Store reg to external disk addr | Kernel |
-| PSH | reg | None | Push the value to the stack | User |
-| POP | reg | None | Move the stack to the destination | User |
+| Instruction | Argument 1 | Argument 2 | Argument 3 | Description | CPU mode |
+| --- | --- | --- | --- | --- | --- |
+| MOV | reg | reg | None | Move argument 2 into argument 1 | User |
+| LDI | reg | val | Offset | Load a value into reg | User |
+| LDM | reg | addr | offset | Load from general memory to reg | User |
+| STM | addr | reg | offset | Store reg to general memory | User |
+| LDC | reg | addr | offset | Load from code memory to reg | Kernel |
+| STC | addr | reg | offset | Write to code memory at addr | Kernel |
+| LV1 | reg | addr | offset | Load from VRAM 1 to reg | Kernel |
+| SV1 | addr | reg | offset | Store reg to VRAM 1 | Kernel |
+| LV2 | reg | addr | offset | Load from VRAM 2 to reg | Kernel |
+| SV2 | addr | reg | offset | Store reg to VRAM 2 | Kernel |
+| LSB | reg | addr | offset | Load from screen buffer to reg | Kernel |
+| SSB | addr | reg | offset | Store reg to screen buffer | Kernel |
+| LID | reg | addr | offset | Load from internal disk addr to reg | Kernel |
+| SID | addr | reg | offset | Store reg to internal disk addr | Kernel |
+| LXD | reg | addr | offset | Load from external disk addr to reg | Kernel |
+| SXD | addr | reg | offset | Store reg to external disk addr | Kernel |
+| PSH | reg | Offset | Push the value to the stack | User |
+| POP | reg | Offset | Move the stack to the destination | User |
+| SSP | reg | offset | None | Change the stack pointer to reg | Kernel |
+| SFP | reg | offset | None | Change the frame pointer to reg | Kernel |
 | GWV | reg | val | Get real-world value | Kernel |
 
 ?> **Tip** \

@@ -1,6 +1,6 @@
 _pre_main:
-ldi r4 ""
-ldi r7 ""
+ldi "" r4
+ldi "" r7
 jmp _main
 
 _main:
@@ -10,28 +10,28 @@ cmp r7 r8
 jeq _backspace
 cmp r7 r9
 jeq _newline
-mov r4 r7
+mov r7 r4
 ITR
 add r2 r6
 jmp _pre_main
 
 _backspace:
 sub r2 r6
-ldi r4 " "
+ldi " " r4
 ITR
 jmp _pre_main
 
 _newline:
-LDI R2 -230
+LDI -230 r2
 SUB R3 R5
 JMP _pre_main
 
 _init:
-ldi r1 text
-ldi r2 -230
-ldi r3 160
-ldi r5 17
-ldi r6 10
-ldi r8 backspace
-ldi r9 enter
+ldi text r1
+ldi -230 r2
+ldi 160 r3
+ldi 17 r5
+ldi 10 r6
+ldi backspace r8
+ldi enter r9 1
 jmp _pre_main

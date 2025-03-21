@@ -1,6 +1,7 @@
 _init:
-ldi r1 text
-ldi r2 -230
-ldi r3 160
-ldi r4 "Hello world!"
-itr
+ldi 1 r1
+ssp r1
+ldi "Hello" r2
+ldi "World!" r3
+psh r2
+psh r3
