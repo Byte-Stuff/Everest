@@ -5,3 +5,4 @@ ldi "Hello" r2
 ldi "World!" r3
 psh r2
 psh r3
+hlt
