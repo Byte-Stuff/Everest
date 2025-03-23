@@ -36,8 +36,8 @@ The CPU has a few modes it keeps track of, most notably:
 | SXD | addr | reg | offset | Store reg to external disk addr | Kernel |
 | PSH | reg | Offset | Push the value to the stack | User |
 | POP | reg | Offset | Move the stack to the destination | User |
-| SSP | reg | offset | None | Change the stack pointer to reg | Kernel |
-| SFP | reg | offset | None | Change the frame pointer to reg | Kernel |
+| SSP | val | offset | None | Change the stack pointer to val | Kernel |
+| SFP | val | offset | None | Change the frame pointer to val | Kernel |
 | GWV | reg | val | Get real-world value | Kernel |
 
 ?> **Tip** \
