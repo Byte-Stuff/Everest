@@ -1,8 +1,8 @@
 _init:
-ldi 1 r1
-ssp r1
 ldi "Hello" r2
 ldi "World!" r3
 psh r2
 psh r3
+ssp fp -2
+pop r4
 hlt
