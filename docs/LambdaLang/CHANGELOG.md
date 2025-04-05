@@ -1,6 +1,8 @@
 # Changelog
 
-## REV 204
+This changelog uses the dd/mm/yyyy format
+
+## REV 204 05/04/2024
 
 ### Added
 - New CPU halted screen
