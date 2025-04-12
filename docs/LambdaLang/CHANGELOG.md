@@ -2,12 +2,18 @@
 
 This changelog uses the dd/mm/yyyy format
 
+## Unreleased
+
+### Changed
+- 
+
 ## REV 207 10/04/2024
 
 ### Added
 - Temporary new way to write to the screen, using character data stored in memory like this: \
 Character/CharColor/CharBrightness/BackColor/BackBrightness
-Example: A000+100000-100 for white A with black background
+Example: A000+100000-100 for white A with black background \
+UNFINISHED!!!
 
 ### Changed
 - Back color and brightness of letters can be set
@@ -15,6 +21,8 @@ Example: A000+100000-100 for white A with black background
 ### Fixed
 - Back color of letters in Firmware Display mode being in the wrong place
 
+### DEPRECATED
+- Old writing mechanism
 
 ## REV 204 05/04/2024
 
