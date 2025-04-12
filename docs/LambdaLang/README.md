@@ -95,7 +95,7 @@ See ![Here](./README.md#cpu-modes)
 | :---: | :---: | :---: |
 | 200000 | action to perform by the firmware | 0 |
 | 200000 | codeMemory address for the Kernel's Interrupt handler | 1 |
-| 199999 -> 198918 | Store characters on screen | 0 |
+| 199999 -> 198298 | Store characters on screen | 0 |
 
 ## Display
 
