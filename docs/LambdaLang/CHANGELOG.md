@@ -13,7 +13,7 @@ This changelog uses the dd/mm/yyyy format
 - New LGO instruction, works like Length Of, see [here](./README.md#other)
 
 ### Changed
-- New display writing uses memory addresses 199999 -> 198298 see ![Firmware reserved addresses](./README.md#firmware-reserved-addresses)
+- New display writing uses memory addresses 199999 -> 198298 see [Firmware reserved addresses](./README.md#firmware-reserved-addresses)
 
 ### Removed
 - Old display writing
