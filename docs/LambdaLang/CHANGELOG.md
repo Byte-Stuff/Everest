@@ -4,6 +4,10 @@ This changelog uses the dd/mm/yyyy format
 
 ## Unreleased
 
+
+
+## REV 211 12/04/2025
+
 ### Added
 - New LTO instruction, works like Letter Of, see ![here](./README.md#other)
 - New LGO instruction, works like Length Of, see ![here](./README.md#other)
@@ -14,7 +18,7 @@ This changelog uses the dd/mm/yyyy format
 ### Removed
 - Old display writing
 
-## REV 207 10/04/2024
+## REV 207 10/04/2025
 
 ### Added
 - Temporary new way to write to the screen, using character data stored in memory like this: \
@@ -31,7 +35,7 @@ UNFINISHED!!!
 ### DEPRECATED
 - Old writing mechanism
 
-## REV 204 05/04/2024
+## REV 204 05/04/2025
 
 ### Added
 - New CPU halted screen
