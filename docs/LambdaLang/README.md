@@ -8,7 +8,7 @@ F-Recovery (or Firmware Recovery), is an error screen that the Firmware triggers
 
 ## CPU modes
 
-The CPU has a few modes it keeps track of, most notably:
+The CPU has a few modes it keeps track of:
 - Kernel mode: this keeps track of if the CPU is in User or Kernel mode
 - Firmware mode: this tells the CPU that the firmware is still in control, and that no program took over yet, as such the Firmware will handle interrupts.
 
@@ -75,20 +75,27 @@ Trying to write to any memory not paged in the page table beforehand (in user mo
 
 ### Other
 
-| Instruction | Argument 1 | Argument 2 | Description | CPU mode |
-| --- | --- | --- | --- | --- |
-| ITR | None | None | Triggers an interrupt | User |
-| IRR | None | None | Returns last interrupt | Kernel |
-| HLT | None | None | Halt CPU | Kernel |
-| REF | None | None | Refresh Screen | Kernel |
-| CPV | reg | Position | Move the VRAM item to the position in NSB (see Display) | Kernel |
+| Instruction | Argument 1 | Argument 2 | Argument 3 | Description | CPU mode |
+| --- | --- | --- | --- | --- | --- |
+| ITR | None | None | None | Triggers an interrupt | User |
+| IRR | None | None | None | Returns last interrupt | Kernel |
+| HLT | None | None | None | Halt CPU | Kernel |
+| REF | None | None | None | Refresh Screen | Kernel |
+| CPV | reg | Position | None | Move the VRAM item to the position in NSB (see Display) | Kernel |
+| LTO | reg | reg | reg | Letter of: Moves the letter Argument 1 from the text Argument 2 into Argument 3 | User |
+| LGO | reg | reg | None | Length of: Takes the length of Argument 1 and puts it in Argument 2 | User |
 
 ## Firmware reserved addresses
 
+Mode 0 addresses only apply when the Firmware is still in control
+Mode 1 addresses only apply when the Kernel is in control
+See ![Here](./README.md#cpu-modes)
+
 | Address | Use | Mode |
 | :---: | :---: | :---: |
-| 1 | action to perform by the firmware | 0 |
-| 1 | codeMemory address for the Kernel's Interrupt handler | 1 |
+| 200000 | action to perform by the firmware | 0 |
+| 200000 | codeMemory address for the Kernel's Interrupt handler | 1 |
+| 199999 -> 198918 | Store characters on screen | 0 |
 
 ## Display
 
