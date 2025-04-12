@@ -1,0 +1,28 @@
+_init:
+ssp 199999
+ldi r1 H
+ldi r2 000+100000-100
+ldi r3 "Hello World"
+lgo r3 r4
+ldi r5 1
+jmp _putstring
+
+_putchar:
+add r1 r2
+psh r1
+jmp _putstring
+
+_apply:
+ldi r1 text
+itr
+jmp _dbugloop
+
+_dbugloop:
+jmp _dbugloop
+
+_putstring:
+cmp r5 r4
+jgt _apply
+lto r5 r3 r1
+inc r5 1
+jmp _putchar
