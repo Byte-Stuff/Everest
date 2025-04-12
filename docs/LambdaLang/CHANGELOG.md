@@ -4,8 +4,15 @@ This changelog uses the dd/mm/yyyy format
 
 ## Unreleased
 
+### Added
+- New LTO instruction, works like Letter Of, see ![here](./README.md#other)
+- New LGO instruction, works like Length Of, see ![here](./README.md#other)
+
 ### Changed
-- 
+- New display writing uses memory addresses 199999 -> 198918 see ![Firmware reserved addresses](./README.md#firmware-reserved-addresses)
+
+### Removed
+- Old display writing
 
 ## REV 207 10/04/2024
 
