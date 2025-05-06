@@ -1,8 +1,7 @@
 _init:
-ldi "Hello" r2
-ldi "World!" r3
-psh r2
-psh r3
-ssp fp -2
-pop r4
-hlt
+ldi r1 exep
+ldi r2 "Oh no!"
+ldi r3 "A custom error screen appeared!"
+ldi r4 "How are you doing?"
+ldi r5 "bleh"
+itr

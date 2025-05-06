@@ -1,0 +1,26 @@
+_init:
+ldi r1 198298
+ldi r2 199999
+ldi r3 #000+100000-100 
+ldi r4 172000
+ssp 199999
+jmp _write
+
+_write:
+psh r3
+inc r1 1
+cmp r1 r2
+jle _write
+jgt _apply
+
+_loop:
+inc r1 1
+cmp r1 r4
+jlt _loop
+hlt
+
+_apply:
+ldi r1 text
+itr
+ldi r1 1
+jmp _loop
