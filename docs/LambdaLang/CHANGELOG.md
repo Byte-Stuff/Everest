@@ -10,6 +10,7 @@ This changelog uses the dd/mm/yyyy format
 - SPT instruction
 - LPT instruction
 - New custom exception screen, able to be triggered via an interrupt. It is able to contain 4 lines of errors
+- EFI Boot info to the documentation (still to be coded)
 
 ### Changed
 - How jump instructions work, should be more reliable
