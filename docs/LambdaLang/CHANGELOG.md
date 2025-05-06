@@ -4,7 +4,18 @@ This changelog uses the dd/mm/yyyy format
 
 ## Unreleased
 
+### Added
+- SPP instruction
+- JLE instruction
+- SPT instruction
+- LPT instruction
+- New custom exception screen, able to be triggered via an interrupt. It is able to contain 4 lines of errors
 
+### Changed
+- How jump instructions work, should be more reliable
+
+### Fixed
+- MMU, now adjusted to new memory scheme
 
 ## REV 211 12/04/2025
 
