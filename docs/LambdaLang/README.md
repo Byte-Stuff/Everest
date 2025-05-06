@@ -173,3 +173,41 @@ The firmare keeps track of certain registers to handle those requests, any inval
 ### Kernel Interrupt
 
 When your program (or kernel), switches the CPU mode from Firmware to Kernel Control, the CPU will instead take up a memory address at address 1, to redirect the Program Counter to what your program put in that address. From there your program will take care of handling requests, and so it has to manage the memory taking itself.
+
+## EDA
+
+The EFI Data Area is where the Firmware places system information at the disposal of any Operating System it stores these:
+- Total memory size [TBD]
+- Screen Size
+- Character Grid Size
+- Boot Flags
+
+## EFI Boot Process
+
+- Play boot chime (not yet done)
+- EFI initialization 
+- - Character Grid (Fallback Character grid used first, then dynamically redone based on screen size)
+- - Screen (Sets the memory address for)
+- - Memory
+
+And then it all depends on if you press keys during boot
+
+### Normal (no key pressed)
+
+EFI loads the bootcode, and executes it
+
+### Verbose (v key)
+
+This one works ALONG any other mode, making it verbose (shows debug information)
+
+### External Boot Mode (e key)
+
+This mode makes you import your boot "drive" before loading and executing that instead, treat it like booting from a USB or CD/DVD
+
+### Option Changer (O key)
+
+If for whatever reason, the EFI fails to auto detect memory or screen size, you can use this menu to manually change them, be careful, as it means that switching it from auto to manual mode, and imputing wrong information WILL cause bad results
+
+### Disk Export Mode (D key)
+
+If you need to export your internal storage, boot with this mode
