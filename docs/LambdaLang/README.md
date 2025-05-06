@@ -34,14 +34,17 @@ The CPU has a few modes it keeps track of:
 | SID | addr | reg | offset | Store reg to internal disk addr | Kernel |
 | LXD | reg | addr | offset | Load from external disk addr to reg | Kernel |
 | SXD | addr | reg | offset | Store reg to external disk addr | Kernel |
+| LPT | reg | addr | offset | Load from PageTable addr to reg | Kernel |
+| SPT | addr | reg | offset | Store reg to PageTable addr | Kernel |
 | PSH | reg | Offset | Push the value to the stack | User |
 | POP | reg | Offset | Move the stack to the destination | User |
 | SSP | val | offset | None | Change the stack pointer to val | Kernel |
 | SFP | val | offset | None | Change the frame pointer to val | Kernel |
+| SPP | val | offset | None | Change the PageTable pointer to val | Kernel |
 | GWV | reg | val | Get real-world value | Kernel |
 
 ?> **Tip** \
-Please keep in mind that, while thr SDM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
+Please keep in mind that, while the STM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
 
 !> **Warning** \
 Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well as an interrupt
@@ -67,9 +70,9 @@ Trying to write to any memory not paged in the page table beforehand (in user mo
 | JEQ | reg | None | Jumps to reg if Z flag is 1 | User |
 | JNE | reg | None | Jumps to reg if Z flag is 0 | User |
 | JGT | reg | None | Jumps to reg if C flag is 0 and Z flag is 0 | User |
-| JLT | reg | None | Jumps to reg if C flag is 1 | User |
-| JGE | reg | None | Jumps to reg if C flag is 0 | User |
-| JLE | reg | None | Jumps to reg if C flag is 1 and Z flag is 1 | User |
+| JLT | reg | None | Jumps to reg if C flag is 1 and Z flag is 0 | User |
+| JGE | reg | None | Jumps to reg if C flag is 0 OR Z flag is 1 | User |
+| JLE | reg | None | Jumps to reg if C flag is 1 OR Z flag is 1 | User |
 | JZE | reg | None | Jumps to reg if Z flag is 1 | User |
 | RET | None | None | Returns last jump | User |
 
