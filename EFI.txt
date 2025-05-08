@@ -1,0 +1,21 @@
+_write:
+lto r4 r2 r3
+add r3 r1
+psh r3
+inc r4 1
+cmp r4 r5
+jle _write
+ldi r1 text
+itr
+jmp _loop
+
+_init:
+ldi r1 000+100000-100
+ldi r2 "EFI loader"
+ldi r4 1
+ssp 199990
+lgo r2 r5
+jmp _write
+
+_loop:
+jmp _loop
