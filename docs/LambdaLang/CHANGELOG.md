@@ -2,7 +2,7 @@
 
 This changelog uses the dd/mm/yyyy format
 
-## Unreleased
+## REV 223 08/05/2025
 
 ### Added
 - SPP instruction
@@ -11,9 +11,13 @@ This changelog uses the dd/mm/yyyy format
 - LPT instruction
 - New custom exception screen, able to be triggered via an interrupt. It is able to contain 4 lines of errors
 - EFI Boot info to the documentation (still to be coded)
+- verbose flag at address 199996
+- Boot sound
+- Automatic character grid size based on screen size
 
 ### Changed
 - How jump instructions work, should be more reliable
+- EFI boot process
 
 ### Fixed
 - MMU, now adjusted to new memory scheme

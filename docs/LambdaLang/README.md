@@ -98,7 +98,7 @@ See [Here](./README.md#cpu-modes)
 | :---: | :---: | :---: |
 | 200000 | action to perform by the firmware | 0 |
 | 200000 | codeMemory address for the Kernel's Interrupt handler | 1 |
-| 199999 -> 199980 | Store characters on screen | 0 & 1 |
+| 199990 -> depends on screen size, given by EDA | Store characters on screen | 0 & 1 |
 
 ## Display
 
@@ -180,7 +180,7 @@ The EFI Data Area is where the Firmware places system information at the disposa
 - Total memory size [199989]
 - Screen Size [199999 & 199998]
 - Character Grid Size [199997 & 199996]
-- Boot Flags [199996 -> 199990]
+- Boot Flags [199995 -> 199990]
 
 ## EFI Boot Process
 
