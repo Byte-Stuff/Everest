@@ -1,7 +1,9 @@
 _init:
-ldi r1 exep
-ldi r2 "Oh no!"
-ldi r3 "A custom error screen appeared!"
-ldi r4 "How are you doing?"
-ldi r5 "bleh"
-itr
+ssp 199990
+cll _test
+log r1
+hlt
+
+_test:
+ldi r1 "Return success!"
+ret
