@@ -2,6 +2,27 @@
 
 This changelog uses the dd/mm/yyyy format
 
+## REV 234 10/05/2025
+
+### Added
+- $PC now gets replaced with the Program Counter
+- Firmware Flasher, adds the ability to replace part of the firmware's code. Triggered by holding the F key on boot
+- Firmware Success screen
+- Call (cll) and Return (ret) Instructions! The call is like jmp but it pushes the program counter before jumping, and ret uses what's at the stack pointer to jump back!
+
+### Changed
+- SP and FP don't get automatically replaced anymore, unless they are after a dollar sign. Example: $SP replaces the argument with the Stack Pointer
+- Boot process
+- Code loader can now load the firmware's code into code memory
+
+### Fixed
+- Firmware Recovery now resets the screen before displaying, this fixes a bug where the screens could overlap
+- Verbose flag now at address 199995 doesn't overlap with the grid height size at 199996 anymore
+- Every argument that started with the letter R would be treated as a register, additional check to see if argument's length is smaller than 4
+
+### Deprecated
+- Keyboard presses replace 7th register to key pressed (was just experimental)
+
 ## REV 223 08/05/2025
 
 ### Added

@@ -211,3 +211,10 @@ If for whatever reason, the EFI fails to auto detect memory or screen size, you 
 ### Disk Export Mode (D key)
 
 If you need to export your internal storage, boot with this mode
+
+### Firmware Flasher Mode (F key)
+
+This mode allows the rewriting PART of the firmware.
+
+?> **Don't worry!** \
+You cannot completely brick everything as you can just rewrite it if things go south, but please keep in mind that the Firmware has access to EVERYTHING unrestricted.
