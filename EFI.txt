@@ -1,21 +1,86 @@
-_write:
-lto r4 r2 r3
-add r3 r1
+_printchar:
+ldm r1 $SP 2
+ldm r2 $SP 3
+ldm r3 $SP 4
+add r2 r1
+ldi r4 $SP
+ssp r3
+psh r2
+ssp r4
+ret
+
+_print:
+ldi r5 1
+ldm r2 $SP 3
+lgo r2 r7
+cll _printloop
+ldm r1 $SP 4
+ldm r2 199997
+ldi r3 199990
+sub r3 r1
+mov r3 r1
+log r1
+log r2
+div r1 r2
+flr r1
+add r1 1
+mul r1 r2
+ldi r2 199990
+sub r2 r1
+mov r2 r1
+ret
+
+_printloop:
+ldm r1 $SP 3
+ldm r2 $SP 4
+ldm r3 $SP 5
+lto r5 r2 r6
 psh r3
-inc r4 1
-cmp r4 r5
-jle _write
+psh r6
+psh r1
+cll _printchar
+add r5 1
+sub r3 1
+ssp $SP 3
+stm r3 $SP 5
+cmp r7 r5
+jge _printloop
+ret
+
+_refresh:
 ldi r1 text
 itr
-jmp _loop
+ret
 
 _init:
+spt 000000200000 1
+spp 1
 ldi r1 000+100000-100
-ldi r2 "EFI loader"
-ldi r4 1
-ssp 199990
-lgo r2 r5
-jmp _write
+ldi r2 "Print function!"
+ldi r3 199990
+ssp 195000
+psh r3
+psh r2
+psh r1
+cll _print
+ssp $SP 3
+mov r1 r3
+ldi r1 000+100000-100
+ldi r2 "Newlines are automated, but only if you decide to use the function's return value!"
+psh r3
+psh r2
+psh r1
+cll _print
+ssp $SP 3
+mov r1 r3
+ldi r2 "WOW!"
+ldi r1 000+100000-100
+psh r3
+psh r2
+psh r1
+cll _print
+cll _refresh
+jmp _loop
 
 _loop:
 jmp _loop
