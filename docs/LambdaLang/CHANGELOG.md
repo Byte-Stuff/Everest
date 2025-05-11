@@ -2,6 +2,11 @@
 
 This changelog uses the dd/mm/yyyy format
 
+## UNRELEASED
+
+### Added
+- Floor instruction (flr)
+
 ## REV 234 10/05/2025
 
 ### Added
