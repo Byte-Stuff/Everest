@@ -1,9 +1,5 @@
 _init:
-ssp 199990
-cll _test
-log r1
-hlt
 
-_test:
-ldi r1 "Return success!"
-ret
+
+
+_write
