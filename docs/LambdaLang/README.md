@@ -14,29 +14,31 @@ The CPU has a few modes it keeps track of:
 
 ## Instructions
 
+All instruction where the arugment is noted as 'arg' means that it can be either a register or an arbitrary value
+
 ### Memory handling
 
 | Instruction | Argument 1 | Argument 2 | Argument 3 | Description | CPU mode |
 | --- | --- | --- | --- | --- | --- |
-| MOV | reg | reg | None | Move argument 2 into argument 1 | User |
+| MOV | arg | reg | None | Move argument 2 into argument 1 | User |
 | LDI | reg | val | Offset | Load a value into reg | User |
 | LDM | reg | addr | offset | Load from general memory to reg | User |
-| STM | addr | reg | offset | Store reg to general memory | User |
+| STM | addr | arg | offset | Store arg to general memory | User |
 | LDC | reg | addr | offset | Load from code memory to reg | Kernel |
-| STC | addr | reg | offset | Write to code memory at addr | Kernel |
+| STC | addr | arg | offset | Write to code memory at addr | Kernel |
 | LV1 | reg | addr | offset | Load from VRAM 1 to reg | Kernel |
-| SV1 | addr | reg | offset | Store reg to VRAM 1 | Kernel |
+| SV1 | addr | arg | offset | Store arg to VRAM 1 | Kernel |
 | LV2 | reg | addr | offset | Load from VRAM 2 to reg | Kernel |
-| SV2 | addr | reg | offset | Store reg to VRAM 2 | Kernel |
+| SV2 | addr | arg | offset | Store arg to VRAM 2 | Kernel |
 | LSB | reg | addr | offset | Load from screen buffer to reg | Kernel |
-| SSB | addr | reg | offset | Store reg to screen buffer | Kernel |
+| SSB | addr | arg | offset | Store arg to screen buffer | Kernel |
 | LID | reg | addr | offset | Load from internal disk addr to reg | Kernel |
-| SID | addr | reg | offset | Store reg to internal disk addr | Kernel |
+| SID | addr | arg | offset | Store arg to internal disk addr | Kernel |
 | LXD | reg | addr | offset | Load from external disk addr to reg | Kernel |
-| SXD | addr | reg | offset | Store reg to external disk addr | Kernel |
+| SXD | addr | arg | offset | Store arg to external disk addr | Kernel |
 | LPT | reg | addr | offset | Load from PageTable addr to reg | Kernel |
-| SPT | addr | reg | offset | Store reg to PageTable addr | Kernel |
-| PSH | reg | Offset | Push the value to the stack | User |
+| SPT | addr | arg | offset | Store arg to PageTable addr | Kernel |
+| PSH | arg | Offset | Push the value to the stack | User |
 | POP | reg | Offset | Move the stack to the destination | User |
 | SSP | val | offset | None | Change the stack pointer to val | Kernel |
 | SFP | val | offset | None | Change the frame pointer to val | Kernel |

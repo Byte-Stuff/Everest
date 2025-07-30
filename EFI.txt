@@ -2,7 +2,7 @@ _printchar:
 ldm r1 $SP 2
 ldm r2 $SP 3
 ldm r3 $SP 4
-add r2 r1
+add r2 $r1
 ldi r4 $SP
 ssp r3
 psh r2

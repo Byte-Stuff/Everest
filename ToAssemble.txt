@@ -1,38 +1,6 @@
-LDI R1 text
-LDI R2 -230
-LDI R3 160
-LDI R5 17
-LDI R6 10
-LDI R8 backspace
-LDI R9 enter
-LDI R4 ""
-LDI R7 ""
-CMP R7 R4
-JEQ 10 null
-CMP R7 R8
-JEQ 20 null
-CMP R7 R9
-JEQ 24 null
-MOV R4 R7
-ITR null null
-ADD R2 R6
-JMP 8 null
-SUB R2 R6
-LDI R4 " "
-ITR null null
-JMP 8 null
-LDI R2 -230
-SUB R3 R5
-JMP 8 null
-
-
-
------------------------
-
-reserve 0x1
-let type = text
-let x = -230
-let y = 160
-if (0x1 = "backspace"):
-    x = (x-10)
-    
+func testfunc() {
+    num test = 1
+    loop 12 {
+        test ++
+    }
+}

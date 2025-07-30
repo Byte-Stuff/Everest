@@ -7,6 +7,9 @@ This changelog uses the dd/mm/yyyy format
 ### Added
 - Floor instruction (flr)
 
+### Changed
+- Registers now need a dollar sign before their use, so instead of using R1, you use $R1
+
 ## REV 234 10/05/2025
 
 ### Added

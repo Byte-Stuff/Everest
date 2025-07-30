@@ -1,5 +1,4 @@
 _init:
-
-
-
-_write
+ldi $R1 yay
+psh $R1
+hlt
