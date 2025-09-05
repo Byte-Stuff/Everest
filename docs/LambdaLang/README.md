@@ -23,27 +23,27 @@ All instruction where the arugment is noted as 'arg' means that it can be either
 | MOV | arg | reg | None | Move argument 2 into argument 1 | User |
 | LDI | reg | val | Offset | Load a value into reg | User |
 | LDM | reg | addr | offset | Load from general memory to reg | User |
-| STM | addr | arg | offset | Store arg to general memory | User |
+| STM | arg | addr | offset | Store arg to general memory | User |
 | LDC | reg | addr | offset | Load from code memory to reg | Kernel |
-| STC | addr | arg | offset | Write to code memory at addr | Kernel |
+| STC | arg | addr | offset | Write to code memory at addr | Kernel |
 | LV1 | reg | addr | offset | Load from VRAM 1 to reg | Kernel |
-| SV1 | addr | arg | offset | Store arg to VRAM 1 | Kernel |
+| SV1 | arg | addr | offset | Store arg to VRAM 1 | Kernel |
 | LV2 | reg | addr | offset | Load from VRAM 2 to reg | Kernel |
-| SV2 | addr | arg | offset | Store arg to VRAM 2 | Kernel |
+| SV2 | arg | addr | offset | Store arg to VRAM 2 | Kernel |
 | LSB | reg | addr | offset | Load from screen buffer to reg | Kernel |
-| SSB | addr | arg | offset | Store arg to screen buffer | Kernel |
+| SSB | arg | addr | offset | Store arg to screen buffer | Kernel |
 | LID | reg | addr | offset | Load from internal disk addr to reg | Kernel |
-| SID | addr | arg | offset | Store arg to internal disk addr | Kernel |
+| SID | arg | addr | offset | Store arg to internal disk addr | Kernel |
 | LXD | reg | addr | offset | Load from external disk addr to reg | Kernel |
-| SXD | addr | arg | offset | Store arg to external disk addr | Kernel |
+| SXD | arg | addr | offset | Store arg to external disk addr | Kernel |
 | LPT | reg | addr | offset | Load from PageTable addr to reg | Kernel |
-| SPT | addr | arg | offset | Store arg to PageTable addr | Kernel |
-| PSH | arg | Offset | Push the value to the stack | User |
-| POP | reg | Offset | Move the stack to the destination | User |
+| SPT | arg | addr | offset | Store arg to PageTable addr | Kernel |
+| PSH | arg | Offset | None | Push the value to the stack | User |
+| POP | reg | Offset | None | Move the stack to the destination | User |
 | SSP | val | offset | None | Change the stack pointer to val | Kernel |
 | SFP | val | offset | None | Change the frame pointer to val | Kernel |
 | SPP | val | offset | None | Change the PageTable pointer to val | Kernel |
-| GWV | reg | val | Get real-world value | Kernel |
+| GWV | reg | val | None | Get real-world value | Kernel |
 
 ?> **Tip** \
 Please keep in mind that, while the STM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
@@ -61,7 +61,7 @@ Trying to write to any memory not paged in the page table beforehand (in user mo
 | DIV | reg | reg | Divide the end reg with the start reg | User |
 | MOD | reg | reg | Modulo the end reg with the start reg | User |
 | INC | reg | val | Increment the start reg with the end value | User |
-| ADD | reg | reg | Decrement the start reg with the end value | User |
+| DEC | reg | reg | Decrement the start reg with the end value | User |
 
 ### Jumping
 
@@ -179,10 +179,9 @@ When your program (or kernel), switches the CPU mode from Firmware to Kernel Con
 ## EDA
 
 The EFI Data Area is where the Firmware places system information at the disposal of any Operating System it stores these:
-- Total memory size [199989]
 - Screen Size [199999 & 199998]
 - Character Grid Size [199997 & 199996]
-- Boot Flags [199995 -> 199990]
+- Boot Flags [199995 -> 199985]
 
 ## EFI Boot Process
 
@@ -200,23 +199,19 @@ EFI loads the bootcode, and executes it
 
 ### Verbose (v key)
 
-This one works ALONG any other mode, making it verbose (shows debug information)
+This one works ALONG any other mode, making it verbose (shows debug information) both in the scratch debugger and in the OS (if the OS has verbose handling)
 
 ### External Boot Mode (e key)
 
 This mode makes you import your boot "drive" before loading and executing that instead, treat it like booting from a USB or CD/DVD
 
-### Option Changer (O key)
-
-If for whatever reason, the EFI fails to auto detect memory or screen size, you can use this menu to manually change them, be careful, as it means that switching it from auto to manual mode, and imputing wrong information WILL cause bad results
-
 ### Disk Export Mode (D key)
 
-If you need to export your internal storage, boot with this mode
+If you need to export your internal storage, boot with this mode, normally the OS should be able to do it automatically when shutting down if it has that feature
 
 ### Firmware Flasher Mode (F key)
 
 This mode allows the rewriting PART of the firmware.
 
 ?> **Don't worry!** \
-You cannot completely brick everything as you can just rewrite it if things go south, but please keep in mind that the Firmware has access to EVERYTHING unrestricted.
+You cannot completely brick everything as the "soft" firmware part is mostly graphical, and for setting some less important stuff up. You can also just rewrite it if things go south, but please keep in mind that the Firmware has access to EVERYTHING unrestricted during startup (until it gives the OS control).
