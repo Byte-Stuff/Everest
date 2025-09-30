@@ -1,7 +1,7 @@
 # EverestOS & Lambda Documentation
 
 !> **Hold up!** \
-This documentation is still being worked on! And things ***WILL*** change!
+This documentation is obsolete! A new, more organized documentation is coming up!
 
 ### What is this documentation, and who is it for?
 
