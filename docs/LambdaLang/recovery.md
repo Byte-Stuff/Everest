@@ -1,7 +1,7 @@
 ## Firmware Recovery
 
 F-Recovery triggers when:
-- An error interrupt is triggered while in Firmware Mode
+- An error interrupt is triggered while in Firmware Mode, etiher by the firmware itself, or the running code
 - No boot file is found
 
 F-Recovery has multiple images, which have different meanings:
