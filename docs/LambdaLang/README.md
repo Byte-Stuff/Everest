@@ -46,7 +46,7 @@ All instruction where the arugment is noted as 'arg' means that it can be either
 | GWV | reg | val | None | Get real-world value | Kernel |
 
 ?> **Tip** \
-Please keep in mind that, while the STM and LDM Instructions are available in User mode, they WILL be controlled by the MMU
+Please keep in mind that, while the STM and LDM Instructions are available in User mode, they ARE controlled by the MMU
 
 !> **Warning** \
 Trying to write to any memory not paged in the page table beforehand (in user mode) will result in an error, as well as an interrupt
