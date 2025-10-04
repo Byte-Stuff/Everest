@@ -1,7 +1,7 @@
 # EverestOS & Lambda Documentation
 
 !> **Hold up!** \
-This documentation is obsolete! A new, more organized documentation is coming up!
+This documentation is obsolete! A new, more organized documentation is coming up soon!
 
 ### What is this documentation, and who is it for?
 
