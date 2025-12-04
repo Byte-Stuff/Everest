@@ -1,0 +1,22 @@
+site_name: EverestOS / Lambda Documentation
+theme:
+    name: material
+    palette:
+        scheme: slate
+        primary: dark purple
+    features:
+        - navigation.footer
+        - content.tooltips
+
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - admonition
+  - pymdownx.details
+  - abbr
+  - attr_list
+  - pymdownx.snippets
