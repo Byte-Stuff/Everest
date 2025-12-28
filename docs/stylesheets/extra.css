@@ -1,0 +1,57 @@
+/* Hero Container */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 60px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Color Variants */
+.hero--framework {
+    background: linear-gradient(#593a98, #301f52);
+}
+.hero--sample {
+    background: linear-gradient(#d5ca2a, #76712d);
+}
+.hero--article {
+    background: linear-gradient(#808080, #525252);
+}
+
+.hero--instructions {
+    background: linear-gradient(#74619e, #30175e);
+}
+
+.hero--api {
+    background: linear-gradient(#c24040, #7c2727);
+}
+
+.hero--component {
+    background: linear-gradient(#329f3d, #277c30);
+}
+
+.hero__subtitle {
+    text-transform: capitalize;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.hero__title {
+    font-size: 2.5rem !important;
+    margin: 8px 0 !important;
+    color: white !important;
+}
+
+/* Background Icon Effect */
+.hero__icon img {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-15%);
+    height: 80%;
+    opacity: 0.2; /* Subtle Apple-style watermark effect */
+    size: 10%;
+}

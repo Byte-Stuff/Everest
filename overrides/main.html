@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %} {% if page.meta.type %}
+<div class="hero hero--{{ page.meta.type }}">
+    <div class="hero__content">
+        <p class="hero__subtitle">{{ page.meta.type | capitalize }}</p>
+        <h1 class="hero__title">{{ page.title }}</h1>
+        <p class="hero__description">{{ page.meta.description }}</p>
+    </div>
+    <div class="hero__icon">
+        {% if page.meta.type == "framework" %}
+        <img src="/assets/icons/framework-stack.svg" />
+        {% elif page.meta.type == "sample" %}
+        <img src="/assets/icons/brackets.svg" />
+        {% elif page.meta.type == "instructions" %}
+        <img src="/assets/icons/instruction.svg" />
+        {% elif page.meta.type == "api" %}
+        <img src="/assets/icons/api.svg" />
+        {% elif page.meta.type == "component" %}
+        <img src="/assets/icons/component.svg" />
+        {% endif %}
+    </div>
+</div>
+{% endif %} {{ super() }} {% endblock %}
