@@ -12,21 +12,25 @@
 
 /* Color Variants */
 .hero--framework {
-    background: linear-gradient(#061e31, #0b3a5d);
+    background: linear-gradient(#593a98, #301f52);
 }
 .hero--sample {
-    background: linear-gradient(#2b123a, #4a2168);
+    background: linear-gradient(#d5ca2a, #76712d);
 }
 .hero--article {
-    background: linear-gradient(#0a2626, #154545);
+    background: linear-gradient(#808080, #525252);
 }
 
 .hero--instructions {
-    background: linear-gradient(#2b123a, #4a2168);
+    background: linear-gradient(#74619e, #30175e);
 }
 
 .hero--api {
-    background: linear-gradient(#2b123a, #4a2168);
+    background: linear-gradient(#c24040, #7c2727);
+}
+
+.hero--component {
+    background: linear-gradient(#329f3d, #277c30);
 }
 
 .hero__subtitle {
