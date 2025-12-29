@@ -1,4 +1,5 @@
 site_name: Ever Project Documentation
+site_url: https://byte-stuff.github.io/Everest/
 theme:
   name: material
   palette:
