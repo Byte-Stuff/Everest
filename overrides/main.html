@@ -6,17 +6,7 @@
         <p class="hero__description">{{ page.meta.description }}</p>
     </div>
     <div class="hero__icon">
-        {% if page.meta.type == "framework" %}
-        <img src="/assets/icons/framework-stack.svg" />
-        {% elif page.meta.type == "sample" %}
-        <img src="/assets/icons/brackets.svg" />
-        {% elif page.meta.type == "instructions" %}
-        <img src="/assets/icons/instruction.svg" />
-        {% elif page.meta.type == "api" %}
-        <img src="/assets/icons/api.svg" />
-        {% elif page.meta.type == "component" %}
-        <img src="/assets/icons/component.svg" />
-        {% endif %}
+        <img src="{{ ('assets/icons/' ~ page.meta.type ~ '.svg') | url }}" />
     </div>
 </div>
 {% endif %} {{ super() }} {% endblock %}
