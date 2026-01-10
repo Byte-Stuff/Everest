@@ -1,15 +1,12 @@
 ---
+type: blog
+description: New documentation website to replace github pages, rectification on planified custom website.
 date: 2025-12-29 
-categories:
-  - Updates
-  - Documentation
 ---
 
 # New documentation standards
 
 After months of testing different things, making my own full dynamic website for just documentation and blogs is overkill, and brings me away from the most important part of this project: Everest
-
-<!-- more -->
 
 ## New framework
 

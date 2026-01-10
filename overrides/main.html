@@ -4,9 +4,13 @@
         <p class="hero__subtitle">{{ page.meta.type | capitalize }}</p>
         <h1 class="hero__title">{{ page.title }}</h1>
         <p class="hero__description">{{ page.meta.description }}</p>
+        {% if page.meta.type == "blog" %}
+        <p class="hero__blog_date">Created on {{page.meta.date}}</p>
+        {% endif %}
     </div>
     <div class="hero__icon">
         <img src="{{ ('assets/icons/' ~ page.meta.type ~ '.svg') | url }}" />
     </div>
 </div>
-{% endif %} {{ super() }} {% endblock %}
+{% endif %} {{ super() }} {% endblock %} {% block announce %} This documentation
+is still largely unfinished, take this more like a preview! {% endblock %}
