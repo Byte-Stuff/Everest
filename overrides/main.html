@@ -12,5 +12,12 @@
         <img src="{{ ('assets/icons/' ~ page.meta.type ~ '.svg') | url }}" />
     </div>
 </div>
-{% endif %} {{ super() }} {% endblock %} {% block announce %} This documentation
-is still largely unfinished, take this more like a preview! {% endblock %}
+{% endif %}
+
+{{ super() }}
+
+{% endblock %}
+
+{% block announce %}
+This documentation is still largely unfinished, take this more like a preview!
+{% endblock %}
